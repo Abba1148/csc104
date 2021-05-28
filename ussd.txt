@@ -1,0 +1,86 @@
+text = ""
+def prompt_user(text):
+    print("0. To go back")
+    print("*. Back to main menu")
+    print(text)
+    text += input()
+    print(text)
+    response(text)
+def main_menu():
+   print("1. UBA")
+   print("2. Zenith bank")
+   print("3. First bank")
+   text = input("select a bank: ")
+   response(text)
+def response(text):
+    #main menu
+    if text == "" or text[-1] == "*":
+        main_menu()
+    #go back
+    print
+    if text[-1] == "0": #check last element
+        print('try to remove')
+        text = text[:-2] # To remove last two commands to return to previous menu
+        response(text)
+    #UBA menu
+    elif text == "1":
+        print("\n")
+        print("1. Airtime-self")
+        print("2. Airtime-Others")
+        print("3. Transfer-UBA")
+        print("4. Transfer-Other Banks")
+        print("5. Check Balance")
+        prompt_user(text)
+    elif text == "11":
+        pin = input("Please enter pin: ")
+        amount = input(" Please enter amount: ")
+        print("Your transaction is being processed")
+        #text = "" clear all command to return to main menu
+        prompt_user(text)
+    elif text == "12":
+        pin = input("Please enter pin: ")
+        number = input("Please enter destination line: ")
+        amount = input("please enter amount: ")
+        print("Your transaction is being processed")
+        #text = ""  clears all commands to return to main menu
+        prompt_user(text)
+    elif text == "13":
+        pin = input("Please enter pin: ")
+        number = input("Please enter UBA Account number: ")
+        amount = input("please enter amount: ")
+        print("Send money to ", number)
+        print("transaction fee N20 applies")
+        print(" Do you wish to continue?")
+        action = input("1. Yes\n 2. No \n")
+        if action == "1":
+            print("Your transaction is being processed")
+        text = "" # clears all commands to return to main menu
+        response(text)
+    elif text == "14":
+        pin = input("Please enter pin: ")
+        number = input("Please enter Account number: ")
+        print("Please select bank")
+        print("1. First bank of Nigeria")
+        print("2. United bank of africa")
+        print("3. access bank")
+        print("4. NOVA MERCHANT BANK")
+        bank = input()
+        amount = input("please enter amount: ")
+        print("Send money to ", number)
+        print("transaction fee of N50 applies")
+        print(" Do you wish to continue?")
+        action = input("1. Yes\n 2. No \n")
+        if action == "1":
+            print("Your transaction is being processed")
+        text = ""# clears all commands to return to main menu
+        response(text)
+    elif text == "15":
+        pin = input("Please enter pin: ")
+        print("transaction fee of N10 applies")
+        print(" Do you wish to continue?")
+        action = input("1. Yes\n 2. No \n")
+        if action == "1":
+            print("Your account balance is 2000 naira")
+        text = "" # clear all commands to return to main menu
+        response(text)
+main_menu()
